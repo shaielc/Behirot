@@ -1,4 +1,4 @@
-# Israeli 25th Behirut Data by Ballot
+# Israeli 25th Elections Data by Ballot
 
 Notebook for displaying the distribution of votes by Ballot box.
 
