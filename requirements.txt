@@ -4,3 +4,4 @@ ipyleaflet
 numpy
 scipy
 shapely
+pandas
