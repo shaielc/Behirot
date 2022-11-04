@@ -1,0 +1,6 @@
+ipywidgets
+ipympl
+ipyleaflet
+numpy
+scipy
+shapely
