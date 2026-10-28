@@ -1,8 +1,10 @@
 ipywidgets
+ipykernel
 ipympl
 ipyleaflet
 numpy
 scipy
 shapely
 pandas
+requests
 voila
