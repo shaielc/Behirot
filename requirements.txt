@@ -1,3 +1,4 @@
+matplotlib==3.11.2
 ipywidgets
 ipykernel
 ipympl
