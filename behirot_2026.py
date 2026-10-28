@@ -61,8 +61,11 @@ def download_election_file(filename):
     try:
         response = requests.get(url, headers=chrome_headers, timeout=30)
         response.raise_for_status()
-        election_data = read_election_csv(BytesIO(response.content), url)
-    except (requests.RequestException, pd.errors.ParserError, RuntimeError):
+        content = BytesIO(response.content)
+        output_path.with_stem(output_path.stem + '.tmp').write_bytes(response.content)
+        election_data = read_election_csv(content, url)
+    except (requests.RequestException, pd.errors.ParserError, RuntimeError) as e:
+        print("Failed downloading", url, e)
         if not output_path.exists():
             raise
         return read_election_csv(output_path, output_path)
