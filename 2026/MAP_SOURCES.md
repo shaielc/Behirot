@@ -17,5 +17,15 @@ The processed TopoJSON retains a `src` property on each geometry (`mot2026` or
   locality boundaries.
   [Official data.gov.il download](https://data.gov.il/dataset/6b729165-dc9c-49b3-afc6-eceabd8fef70/resource/3b88cb58-62cd-43ea-9156-7b81ead557b1/download/50400-2008.7z)
 Election results come from the Central Elections Committee's 2026 `expb.csv`
-ballot-box export. The notebook aggregates ballot boxes by `סמל ישוב` and joins
-those locality totals to the boundary geometry through `code`.
+ballot-box export. `polling_places.csv` is a cached flat table of the final
+Knesset 26 polling-place list, including address and WGS84 longitude/latitude.
+The notebook joins the two tables through `ברזל`, creates a Voronoi region for
+each ballot box, and clips those regions to the locality boundary. Ballot boxes
+sharing one coordinate receive a tiny deterministic offset so each remains an
+independent hover and click target.
+
+Dominant-party fills use the fixed current-list palette from
+[`RavBogard/israelielection`](https://github.com/RavBogard/israelielection/blob/main/lib/party-colors.ts),
+mapped through the official ballot letters. That project describes the colors
+as editorial rather than official: related shades intentionally group political
+families. Lists absent from that palette use `#8c939b`.

@@ -5,8 +5,9 @@ Notebook for displaying the distribution of votes by Ballot box.
 ## 2026 election
 
 [`view_2026.ipynb`](view_2026.ipynb) downloads the latest official 26th
-Knesset ballot-box export, saves it under `2026/`, and displays the aggregated
-locality results on real boundaries with hover and click summaries. The
+Knesset ballot-box export, joins it to the cached polling-place table by
+`ברזל`, and displays polling-place Voronoi regions clipped to locality
+boundaries. Each ballot box is its own hoverable and clickable region. The
 original 2022 results are stored under `2022/` and remain available through
 `view.ipynb`.
 
